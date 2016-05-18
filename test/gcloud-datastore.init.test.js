@@ -31,4 +31,29 @@ describe('When starting up the Loopback Connector for Gcloud', function(){
       db.disconnect(afterMethod);
     });
   });
+
+  describe('WIP', function() {
+    it.skip('WIP1', function(done) {
+      var gcloud = require('gcloud')({
+        projectId: 'loopback-connector-gcloud',
+        keyFilename: 'key.json'
+      });
+
+      var datastore = gcloud.datastore();
+      var key = datastore.key('postdatastore');
+
+      datastore.save({
+        key: key,
+        data: {
+          attribute1: 'Test1',
+          attribute2: 1234
+        }
+      }, function(err, entity) {
+          console.log("Entities: %s",JSON.stringify(entity));
+          console.log("Error: %s",err)
+          done();
+        }
+      );
+    });
+  });
 });

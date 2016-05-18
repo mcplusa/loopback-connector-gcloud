@@ -4,9 +4,6 @@ var assert = require('chai').assert;
 var mocks = require('./mocks.js');
 var db;
 
-//var nock = require('nock');
-//nock.recorder.rec({dont_print:false, output_objects: false});
-
 describe('When updating on the Loopback Connector for Gcloud', function() {
   before(function() {
     db = getDataSource();
@@ -25,10 +22,15 @@ describe('When updating on the Loopback Connector for Gcloud', function() {
 
   beforeEach(function () {
   });
-
-  afterEach(function() {
+  /*
+  afterEach(function(done) {
+    User.destroyAll(function(result) {
+      ACL.destroyAll(function(result) {
+        done();
+      })
+    });
   });
-
+*/
     describe("when updating a user email", function() {
 
       it('should successfully change the email', function(done) {
@@ -43,6 +45,8 @@ describe('When updating on the Loopback Connector for Gcloud', function() {
           assert.equal(result.name, user1.name);
 
           User.updateAll({where:{id: result.id}}, {email: 'jpdiazvaz@mcplusa.cl'}, function(err, result) {
+            if(err) console.log("Error: %s",err);
+            if(result) console.log("Result: %s",result);
             assert.equal(result[0].email, 'jpdiazvaz@mcplusa.cl');
 
             mocks.reset();

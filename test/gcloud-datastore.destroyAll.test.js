@@ -5,9 +5,6 @@ var mocks = require('./mocks.js');
 var db;
 var ACL, User;
 
-//var nock = require('nock');
-//nock.recorder.rec({output_objects: false});
-
 describe('When deleting entities on the Loopback Connector for Gcloud', function(){
   before(function(){
     db = getDataSource();
@@ -19,9 +16,6 @@ describe('When deleting entities on the Loopback Connector for Gcloud', function
 
   describe('when creating 3 ACLs and then doing a destroyAll', function(){
     it('should delete all existing ACLs', function(done){
-      mocks.mockLogin();
-      mocks.mockLogin();
-      mocks.mockLogin();
       mocks.mockCreate3AclsForTest();
       ACL.create([{
           model: 'TestModel',
@@ -41,6 +35,7 @@ describe('When deleting entities on the Loopback Connector for Gcloud', function
           assert.lengthOf(acls, 3, 'created ACLs should be 3');
           assert(acls.length >= 3, 'All ACLs are more than 3');
           mocks.mockDestroyAllAclEntities();
+
           ACL.destroyAll({}, function(err){
             assert.isNull(err, 'no errors occurred');
             mocks.mockLogin();
@@ -51,6 +46,7 @@ describe('When deleting entities on the Loopback Connector for Gcloud', function
               done();
             });
           });
+
         });
       });
     });

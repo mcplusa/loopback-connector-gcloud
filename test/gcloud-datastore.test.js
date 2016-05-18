@@ -4,9 +4,6 @@ var assert = require('chai').assert;
 var mocks = require('./mocks.js');
 var db;
 
-//var nock = require('nock');
-//nock.recorder.rec({dont_print:true,output_objects: false});
-
 describe('When using the Loopback Connector for Gcloud', function() {
   before(function() {
     db = getDataSource();
@@ -26,7 +23,12 @@ describe('When using the Loopback Connector for Gcloud', function() {
   beforeEach(function () {
   });
 
-  afterEach(function() {
+  afterEach(function(done) {
+    User.destroyAll(function(result) {
+      ACL.destroyAll(function(result) {
+        done();
+      })
+    });
   });
 
   ///// DB TESTS /////

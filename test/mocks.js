@@ -311,23 +311,24 @@ nock('https://www.googleapis.com:443', {"encodedQueryParams":true})
 exports.mockUpdateMultipleUsers = function() {
   nock('https://accounts.google.com:443', {"encodedQueryParams":true})
     .post('/o/oauth2/token')
-    .reply(200, {"access_token":"ya29.rwKPXgIqeke_TvQQTicv8Uz9LehH-YQNNf1Eh1O3Gm6hV0msQqdAY4sHetPj_Bfkejs","token_type":"Bearer","expires_in":3600}, { 'content-type': 'application/json; charset=utf-8',
+    .reply(200, {"access_token":"ya29..xQK3lV_-eOVF4wt5s5AI5i4UCH6okcvPFdS1rjXPvwnUPWTchxKH23JyO_5pRVDzvg","token_type":"Bearer","expires_in":3600}, { 'content-type': 'application/json; charset=utf-8',
     'x-content-type-options': 'nosniff',
     'cache-control': 'no-cache, no-store, max-age=0, must-revalidate',
     pragma: 'no-cache',
     expires: 'Fri, 01 Jan 1990 00:00:00 GMT',
-    date: 'Thu, 24 Mar 2016 01:20:39 GMT',
+    date: 'Fri, 15 Apr 2016 20:31:44 GMT',
     'content-disposition': 'attachment; filename="json.txt"; filename*=UTF-8\'\'json.txt',
-    'set-cookie': [ 'NID=77=rZ0SMdy7IQIk82oLzVs0JZhqwDubASzJI4sb4fx-WeFQR3GhQ2axEeem4v2fsXWCLSFLLqhkurE04gSg6FtNOurHW1VJPO-JkLqkzayLunR6SxwwJx2grL6AFJAQNFSf;Domain=.google.com;Path=/;Expires=Fri, 23-Sep-2016 01:20:39 GMT;HttpOnly' ],
+    'set-cookie': [ 'NID=78=jT4UkQtSobDB__BMznJoAmwPxXCvT6G_mfwKeyPwyIFy3K3U-mgoe8ys69yXNneweO1JuISv52zTcgpqz8TMQ2Nx6gk87vue9necFrP4cwYppgnSanuG3sSK3lgg8lMO;Domain=.google.com;Path=/;Expires=Sat, 15-Oct-2016 20:31:44 GMT;HttpOnly' ],
     p3p: 'CP="This is not a P3P policy! See https://support.google.com/accounts/answer/151657?hl=en for more info."',
     'x-frame-options': 'SAMEORIGIN',
     'x-xss-protection': '1; mode=block',
     server: 'GSE',
-    'alternate-protocol': '443:quic,p=1',
-    'alt-svc': 'quic=":443"; ma=2592000; v="31,30,29,28,27,26,25"',
+    'alternate-protocol': '443:quic',
+    'alt-svc': 'quic=":443"; ma=2592000; v="32,31,30,29,28,27,26,25"',
     'accept-ranges': 'none',
     vary: 'Accept-Encoding',
     connection: 'close' });
+
 
   nock('https://www.googleapis.com:443', {"encodedQueryParams":true})
     .post('/datastore/v1beta2/datasets/central-station-staging/commit', "125722550a0812060a045573657212170a046e616d65220f8a010a4a75616e205061626c6f780112230a05656d61696c221a8a01156a706469617a76617a406d63706c7573612e636f6d7801120b0a036167652204101978012802")
@@ -503,58 +504,65 @@ exports.mockUpdate1UserEmail = function() {
 /////  MOCK CREATE 3 ACLs  /////
 
 exports.mockCreate3AclsForTest = function(){
-  nock('https://www.googleapis.com:443', {"encodedQueryParams":true})
-    .post('/datastore/v1beta2/datasets/central-station-staging/commit', "125b22590a0712050a0341434c121b0a0870726f7065727479220f8a010a74657374557064617465780112180a0a61636365737354797065220a8a010566616c7365780112170a056d6f64656c220e8a0109546573744d6f64656c78002802")
-    .reply(200, "0a310807122d0a1b1a19737e63656e7472616c2d73746174696f6e2d73746167696e67120e0a0341434c1080808080efd2d209", { 'cache-control': 'no-cache, no-store, max-age=0, must-revalidate',
+
+  nock('https://accounts.google.com:443', {"encodedQueryParams":true})
+    .post('/o/oauth2/token')
+    .reply(200, {"access_token":"ya29..xQJfRrNjDsi62duPBRNx3Rw40FRoq5E5UkZkz49HF-ERj3fEI0KcbrXunzyv_5fpPg","token_type":"Bearer","expires_in":3600}, { 'content-type': 'application/json; charset=utf-8',
+    'x-content-type-options': 'nosniff',
+    'cache-control': 'no-cache, no-store, max-age=0, must-revalidate',
     pragma: 'no-cache',
     expires: 'Fri, 01 Jan 1990 00:00:00 GMT',
-    date: 'Thu, 24 Mar 2016 19:24:06 GMT',
-    'content-disposition': 'attachment',
-    vary: 'X-Origin, Origin,Accept-Encoding',
-    'content-type': 'application/x-protobuf',
-    'x-content-type-options': 'nosniff',
+    date: 'Fri, 15 Apr 2016 20:34:11 GMT',
+    'content-disposition': 'attachment; filename="json.txt"; filename*=UTF-8\'\'json.txt',
+    'set-cookie': [ 'NID=78=mUB43AgyKzNDyiUtVVnjfupt15sD33VNbA8ye8wOi5r1Cc0AaQpzzHxBWIt6Qg3qw7ab-Q376Sg2ACG72Er9GmrEeGfariqvnde6i31J85N1Hl7zs4LbmhnEg9X4w0em;Domain=.google.com;Path=/;Expires=Sat, 15-Oct-2016 20:34:11 GMT;HttpOnly' ],
+    p3p: 'CP="This is not a P3P policy! See https://support.google.com/accounts/answer/151657?hl=en for more info."',
     'x-frame-options': 'SAMEORIGIN',
     'x-xss-protection': '1; mode=block',
     server: 'GSE',
-    'alternate-protocol': '443:quic,p=1',
-    'alt-svc': 'quic=":443"; ma=2592000; v="31,30,29,28,27,26,25"',
+    'alternate-protocol': '443:quic',
+    'alt-svc': 'quic=":443"; ma=2592000; v="32,31,30,29,28,27,26,25"',
     'accept-ranges': 'none',
+    vary: 'Accept-Encoding',
     connection: 'close' });
 
-  nock('https://www.googleapis.com:443', {"encodedQueryParams":true})
-    .post('/datastore/v1beta2/datasets/central-station-staging/commit', "125e225c0a0712050a0341434c121b0a0870726f7065727479220f8a010a746573744372656174657801121b0a0a61636365737354797065220d8a01086e756c6c61626c65780112170a056d6f64656c220e8a0109546573744d6f64656c78002802")
-    .reply(200, "0a310807122d0a1b1a19737e63656e7472616c2d73746174696f6e2d73746167696e67120e0a0341434c10808080809fac9e08", { 'cache-control': 'no-cache, no-store, max-age=0, must-revalidate',
+  nock('https://accounts.google.com:443', {"encodedQueryParams":true})
+    .post('/o/oauth2/token')
+    .reply(200, {"access_token":"ya29..xQJfRrNjDsi62duPBRNx3Rw40FRoq5E5UkZkz49HF-ERj3fEI0KcbrXunzyv_5fpPg","token_type":"Bearer","expires_in":3600}, { 'content-type': 'application/json; charset=utf-8',
+    'x-content-type-options': 'nosniff',
+    'cache-control': 'no-cache, no-store, max-age=0, must-revalidate',
     pragma: 'no-cache',
     expires: 'Fri, 01 Jan 1990 00:00:00 GMT',
-    date: 'Thu, 24 Mar 2016 19:24:06 GMT',
-    'content-disposition': 'attachment',
-    vary: 'X-Origin, Origin,Accept-Encoding',
-    'content-type': 'application/x-protobuf',
-    'x-content-type-options': 'nosniff',
+    date: 'Fri, 15 Apr 2016 20:34:11 GMT',
+    'content-disposition': 'attachment; filename="json.txt"; filename*=UTF-8\'\'json.txt',
+    'set-cookie': [ 'NID=78=W97ghPo18cIsy34bQTDTeli8dAmD35uaarDPTnbwtQPiy2BB46knDqEhCOXYMcuTGjISG415xDntoRV7JszSXpY3PNX1042S1D0Dd59I-9uloUCUjFWHqIn9NcUtb0Bo;Domain=.google.com;Path=/;Expires=Sat, 15-Oct-2016 20:34:11 GMT;HttpOnly' ],
+    p3p: 'CP="This is not a P3P policy! See https://support.google.com/accounts/answer/151657?hl=en for more info."',
     'x-frame-options': 'SAMEORIGIN',
     'x-xss-protection': '1; mode=block',
     server: 'GSE',
-    'alternate-protocol': '443:quic,p=1',
-    'alt-svc': 'quic=":443"; ma=2592000; v="31,30,29,28,27,26,25"',
+    'alternate-protocol': '443:quic',
+    'alt-svc': 'quic=":443"; ma=2592000; v="32,31,30,29,28,27,26,25"',
     'accept-ranges': 'none',
+    vary: 'Accept-Encoding',
     connection: 'close' });
 
-  nock('https://www.googleapis.com:443', {"encodedQueryParams":true})
-    .post('/datastore/v1beta2/datasets/central-station-staging/commit', "125822560a0712050a0341434c12190a0870726f7065727479220d8a01087465737446696e64780112170a0a6163636573735479706522098a010474727565780112170a056d6f64656c220e8a0109546573744d6f64656c78002802")
-    .reply(200, "0a310807122d0a1b1a19737e63656e7472616c2d73746174696f6e2d73746167696e67120e0a0341434c10808080809bd38b0b", { 'cache-control': 'no-cache, no-store, max-age=0, must-revalidate',
+  nock('https://accounts.google.com:443', {"encodedQueryParams":true})
+    .post('/o/oauth2/token')
+    .reply(200, {"access_token":"ya29..xQJfRrNjDsi62duPBRNx3Rw40FRoq5E5UkZkz49HF-ERj3fEI0KcbrXunzyv_5fpPg","token_type":"Bearer","expires_in":3600}, { 'content-type': 'application/json; charset=utf-8',
+    'x-content-type-options': 'nosniff',
+    'cache-control': 'no-cache, no-store, max-age=0, must-revalidate',
     pragma: 'no-cache',
     expires: 'Fri, 01 Jan 1990 00:00:00 GMT',
-    date: 'Thu, 24 Mar 2016 19:24:06 GMT',
-    'content-disposition': 'attachment',
-    vary: 'X-Origin, Origin,Accept-Encoding',
-    'content-type': 'application/x-protobuf',
-    'x-content-type-options': 'nosniff',
+    date: 'Fri, 15 Apr 2016 20:34:11 GMT',
+    'content-disposition': 'attachment; filename="json.txt"; filename*=UTF-8\'\'json.txt',
+    'set-cookie': [ 'NID=78=qnlbV-pOWm13f7Y6M1Os0oFdy-WLBiiM_NZLwT11-gLqUulHb9tzVedKQgq46sgiuhBfr0ZjCh7uqv7cWfF7kRw3_TEeHJ1oKo4TFA4zacI_r3VT-j5zNFblcAWMNn1h;Domain=.google.com;Path=/;Expires=Sat, 15-Oct-2016 20:34:11 GMT;HttpOnly' ],
+    p3p: 'CP="This is not a P3P policy! See https://support.google.com/accounts/answer/151657?hl=en for more info."',
     'x-frame-options': 'SAMEORIGIN',
     'x-xss-protection': '1; mode=block',
     server: 'GSE',
-    'alternate-protocol': '443:quic,p=1',
-    'alt-svc': 'quic=":443"; ma=2592000; v="31,30,29,28,27,26,25"',
+    'alternate-protocol': '443:quic',
+    'alt-svc': 'quic=":443"; ma=2592000; v="32,31,30,29,28,27,26,25"',
     'accept-ranges': 'none',
+    vary: 'Accept-Encoding',
     connection: 'close' });
 }
 

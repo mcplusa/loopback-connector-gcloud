@@ -5,10 +5,6 @@ var mocks = require('./mocks.js');
 var db;
 var Client, ACL;
 
-//var nock = require('nock');
-//nock.recorder.rec({output_objects: false});
-
-
 describe('Filters on the Loopback Connector for Gcloud', function(){
   before(function(){
     db = getDataSource();
@@ -25,6 +21,14 @@ describe('Filters on the Loopback Connector for Gcloud', function(){
   });
 
   beforeEach(function () {
+  });
+
+  afterEach(function(done) {
+    Client.destroyAll(function(result) {
+      ACL.destroyAll(function(result) {
+        done();
+      })
+    });
   });
 
   describe('when executing a find with a non-existent property value', function() {
